@@ -58,15 +58,6 @@ public class War {
 		System.out.println("Player Two's deck size : " + playerTwo.size());
 	}
 
-//test
-
-
-
-
-
-
-
-//test2
 	/**
 	 *   This method initiates the game and makes the player decks
 	 */
