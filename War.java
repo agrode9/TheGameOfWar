@@ -69,9 +69,6 @@ public class War {
 
 		ArrayList<Card> deck = createCards();
 
-		ArrayList<Card> p1 = new ArrayList<Card>();
-		ArrayList<Card> p2 = new ArrayList<Card>();
-
 		//shuffles the main deck
 
 
@@ -91,11 +88,9 @@ public class War {
 		//       Collections.shuffle(shuffledDeck);
 		//now we need to split the shuffled deck and assign it t0 p1 and p2
 
+		playerOne = shuffledDecxk.subList(0,26) // First 26 cards assigned to Player 1 (Needs to be tested)
+		playerTwo = shuffledDecxk.subList(26,53) // Last 26 cards assigned to Player 2 (Needs to be tested)
 
-
-
-		playerOne = p1;
-		playerTwo = p2;
 	}
 
 	public static ArrayList<Card> createCards()
