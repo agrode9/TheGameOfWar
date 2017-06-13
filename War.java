@@ -25,7 +25,25 @@ public class War {
 			 */
 			getInput("Player One's card: ");
 			getInput("Player Two's card: ");
-			
+			Card one = playerOne.remove(0);
+			Card two = playerTwo.remove(0);
+			//player one has a larger card
+			if(one.getValue() > two.getValue())
+			{
+				playerOne.add(one);
+				playerOne.add(two);
+			}
+			//player 2 has a larger card
+			else if (two.getValue() > one.getValue())
+			{
+				playerTwo.add(one);
+				playerTwo.add(two);
+			}
+			else
+			{
+				//WAR
+
+			}
 
 			System.out.print("Nate's line of code");
 
