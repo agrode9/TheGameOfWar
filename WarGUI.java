@@ -1,5 +1,3 @@
-package helloworld;
-
 import javafx.*;
 
 public class WarGUI extends Application {
