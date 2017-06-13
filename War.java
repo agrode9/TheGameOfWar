@@ -51,9 +51,58 @@ public class War {
 	}
 
 
-
-	public static void warHandler(Card playerOneCard, Card playerTwoCard)
+	/*
+	*	This recursive method calculates all war possibilities.
+	*	If player doesn't have 4 cartds for war, then they play their last card as the face up card.
+	*	If a player has war on their last card in their had, that player loses.
+	*	
+	*/
+	public static void warHandler(Card playerOneCardLaid, Card playerTwoCardLaid)
 	{
+		Card playerOneWarCard = null;
+		Card playerTwoWarCard = null;
+
+		playerOneFacedownCards.add(playerOneCardLaid);
+		playerTwoFacedownCards.add(playerTwoCardLaid);
+
+		//Check to see if any player has no cards remaining
+		if(playerOneHand.isEmpty() || playerTwoHand.isEmpty())
+		{
+			gameOver();
+			return;
+		}
+
+		//Player One lays down rest of hand and turns last card up
+		if (playerOneHand.size() < 5) 
+		{
+			playerOneWarCard = list.remove(playerOneHand.size() - 1);
+			playerOneFacedownCards.addAll(playerOneHand);
+			playOneHand.clear();
+		}
+
+		//Player Two lays down rest of hand and turns last card up
+		if (playerTwoHand.size() < 5) 
+		{
+			playerTwoWarCard = list.remove(playerTwoHand.size() - 1);
+			playerTwoFacedownCards.addAll(playerTwoHand);
+			playTwoHand.clear();
+		}
+
+		if(playerOneWarCard == null)
+		{
+			playerOneFacedownCards.add(playerOneHand.remove(0))
+			playerOneFacedownCards.add(playerOneHand.remove(0))
+			playerOneFacedownCards.add(playerOneHand.remove(0))
+			playerOneWarCard = playerOneHand.remove(0)
+		}
+
+		if(playerTwoWarCard == null)
+		{
+			playerTwoFacedownCards.add(playerTwoHand.remove(0))
+			playerTwoFacedownCards.add(playerTwoHand.remove(0))
+			playerTwoFacedownCards.add(playerTwoHand.remove(0))
+			playerTwoWarCard = playerTwoHand.remove(0)
+		//If the 2 compared cards are equal, call warHandler(cardone, cardtwo);
 
 	}
 
