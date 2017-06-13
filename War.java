@@ -27,6 +27,8 @@ public class War {
 			getInput("Player Two's card: ");
 
 
+			System.out.print("Nate's line of code");
+
 		}
 
 	}
