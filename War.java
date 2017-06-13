@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class War {
-	static ArrayList<Card> playerOne = null;
-	static ArrayList<Card> playerTwo = null;
+	static ArrayList<Card> playerOneHand = null;
+	static ArrayList<Card> playerTwoHand = null;
 
 	public static void main( String[ ] args){
 		startGame();
@@ -10,7 +10,7 @@ public class War {
 		printStart();
 
 		Scanner input = new Scanner(System.in);
-		while(playerOne.size() != 0 && playerTwo.size() != 0)
+		while(playerOneHand.size() != 0 && playerTwoHand.size() != 0)
 		{
 
 
@@ -25,25 +25,26 @@ public class War {
 			 */
 			getInput("Player One's card: ");
 			getInput("Player Two's card: ");
-			Card one = playerOne.remove(0);
-			Card two = playerTwo.remove(0);
-			//player one has a larger card
-			if(one.getValue() > two.getValue())
-			{
-				playerOne.add(one);
-				playerOne.add(two);
-			}
-			//player 2 has a larger card
-			else if (two.getValue() > one.getValue())
-			{
-				playerTwo.add(one);
-				playerTwo.add(two);
-			}
-			else
-			{
-				//WAR
+		
+		Card playerOneCardLaid = playerOneHand.remove(0);
+		Card playerTwoCardLaid = playerTwoHand.remove(0);
 
-			}
+		if(playerOneCardLaid.getValue() > playerTwoCardLaid.getValue())
+		{
+			playerOneHand.add(playerOneCardLaid);
+			playerOneHand.add(playerTwoCardLaid);
+		}
+		else if(playerOneCardLaid.getValue() < playerTwoCardLaid.getValue())
+		{
+			playerTwoHand.add(playerOneCardLaid);
+			playerTwoHand.add(playerTwoCardLaid);
+		}
+		else
+		{
+			
+		}
+
+
 		}
 	}
 	/**
@@ -70,8 +71,8 @@ public class War {
 	}
 	public static void printDeckSizes()
 	{
-		System.out.println("Player One's deck size : " + playerOne.size());
-		System.out.println("Player Two's deck size : " + playerTwo.size());
+		System.out.println("Player One's deck size : " + playerOneHand.size());
+		System.out.println("Player Two's deck size : " + playerTwoHand.size());
 	}
 
 	/**
