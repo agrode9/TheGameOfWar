@@ -3,6 +3,8 @@ import java.util.*;
 public class War {
 	static ArrayList<Card> playerOneHand = null;
 	static ArrayList<Card> playerTwoHand = null;
+	static ArrayList<Card> playerOneFacedownCards  = new ArrayList<Card>();
+	static ArrayList<Card> playerTwoFacedownCards  = new ArrayList<Card>();
 
 	public static void main( String[ ] args){
 		startGame();
@@ -41,12 +43,24 @@ public class War {
 		}
 		else
 		{
-			
+			warHandler(playerOneCardLaid,playerTwoCardLaid);
 		}
 
 
 		}
 	}
+
+
+
+	public static void warHandler(Card playerOneCard, Card playerTwoCard)
+	{
+
+	}
+
+
+
+
+
 	/**
 	 * This method pulls in user input.
 	 */
