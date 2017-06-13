@@ -44,11 +44,7 @@ public class War {
 				//WAR
 
 			}
-
-			System.out.print("Nate's line of code");
-
 		}
-
 	}
 	/**
 	 * This method pulls in user input.
