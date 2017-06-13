@@ -1,7 +1,7 @@
 public class Card
 {
-    String name;
-    int value;
+    private String name;
+    private int value;
     Card(String n, int v)
     {
         name = n;
