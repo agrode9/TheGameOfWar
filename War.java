@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class War {
-	static ArrayList<Card> playerOneHand = null;
-	static ArrayList<Card> playerTwoHand = null;
-	static ArrayList<Card> playerOneFacedownCards  = new ArrayList<Card>();
-	static ArrayList<Card> playerTwoFacedownCards  = new ArrayList<Card>();
+	ArrayList<Card> playerOneHand = null;
+	ArrayList<Card> playerTwoHand = null;
+	ArrayList<Card> playerOneFacedownCards  = new ArrayList<Card>();
+	ArrayList<Card> playerTwoFacedownCards  = new ArrayList<Card>();
 
 	public static void main( String[ ] args){
 		startGame();
@@ -27,7 +27,7 @@ public class War {
 			 */
 			getInput("Player One's card: ");
 			getInput("Player Two's card: ");
-		
+
 		Card playerOneCardLaid = playerOneHand.remove(0);
 		Card playerTwoCardLaid = playerTwoHand.remove(0);
 
@@ -55,7 +55,7 @@ public class War {
 	*	This recursive method calculates all war possibilities.
 	*	If player doesn't have 4 cartds for war, then they play their last card as the face up card.
 	*	If a player has war on their last card in their had, that player loses.
-	*	
+	*
 	*/
 	public static void warHandler(Card playerOneCardLaid, Card playerTwoCardLaid)
 	{
@@ -73,7 +73,7 @@ public class War {
 		}
 
 		//Player One lays down rest of hand and turns last card up
-		if (playerOneHand.size() < 5) 
+		if (playerOneHand.size() < 5)
 		{
 			playerOneWarCard = list.remove(playerOneHand.size() - 1);
 			playerOneFacedownCards.addAll(playerOneHand);
@@ -81,7 +81,7 @@ public class War {
 		}
 
 		//Player Two lays down rest of hand and turns last card up
-		if (playerTwoHand.size() < 5) 
+		if (playerTwoHand.size() < 5)
 		{
 			playerTwoWarCard = list.remove(playerTwoHand.size() - 1);
 			playerTwoFacedownCards.addAll(playerTwoHand);
