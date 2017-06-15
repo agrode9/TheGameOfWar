@@ -11,4 +11,12 @@ public class Card
     public int getValue(){
         return this.value;
     }
+    public String getName()
+    {
+      return this.name;
+    }
+    public String toString()
+    {
+      return this.name;
+    }
 }

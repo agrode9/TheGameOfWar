@@ -114,14 +114,14 @@ public class War {
 		//now we need to split the shuffled deck and assign it t0 p1 and p2
 
 		playerOneHand = shuffledDeck.subList(0,26); // First 26 cards assigned to Player 1 (Needs to be tested)
-		playerTwoHand = shuffledDeck.subList(26,53); // Last 26 cards assigned to Player 2 (Needs to be tested)
+		playerTwoHand = shuffledDeck.subList(26,52); // Last 26 cards assigned to Player 2 (Needs to be tested)
 
 	}
 
 	public static ArrayList<Card> createCards()
 	{
 		ArrayList<Card> list = new ArrayList<Card>();
-		for(int j = 0; j < 8; j++)
+		for(int j = 2; j < 11; j++)
 		{
 			for(int i = 0; i < 4; i++)
 			{
