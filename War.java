@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class War {
-	static ArrayList<Card> playerOneHand = null;
-	static ArrayList<Card> playerTwoHand = null;
+	static List<Card> playerOneHand = null;
+	static List<Card> playerTwoHand = null;
 	static ArrayList<Card> playerOneFacedownCards  = new ArrayList<Card>();
 	static ArrayList<Card> playerTwoFacedownCards  = new ArrayList<Card>();
 
@@ -113,8 +113,8 @@ public class War {
 		//       Collections.shuffle(shuffledDeck);
 		//now we need to split the shuffled deck and assign it t0 p1 and p2
 
-		playerOneHand = (ArrayList<Card>) shuffledDeck.subList(0,26); // First 26 cards assigned to Player 1 (Needs to be tested)
-		playerTwoHand = (ArrayList<Card>) shuffledDeck.subList(26,53); // Last 26 cards assigned to Player 2 (Needs to be tested)
+		playerOneHand = shuffledDeck.subList(0,26); // First 26 cards assigned to Player 1 (Needs to be tested)
+		playerTwoHand = shuffledDeck.subList(26,53); // Last 26 cards assigned to Player 2 (Needs to be tested)
 
 	}
 
