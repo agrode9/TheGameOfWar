@@ -71,7 +71,6 @@ public class War {
 			gameOver();
 			return;
 		}
-
 		//Player One lays down rest of hand and turns last card up
 		if (playerOneHand.size() < 5)
 		{
@@ -90,19 +89,40 @@ public class War {
 
 		if(playerOneWarCard == null)
 		{
-			playerOneFacedownCards.add(playerOneHand.remove(0))
-			playerOneFacedownCards.add(playerOneHand.remove(0))
-			playerOneFacedownCards.add(playerOneHand.remove(0))
-			playerOneWarCard = playerOneHand.remove(0)
+			playerOneFacedownCards.add(playerOneHand.remove(0));
+			playerOneFacedownCards.add(playerOneHand.remove(0));
+			playerOneFacedownCards.add(playerOneHand.remove(0));
+			playerOneWarCard = playerOneHand.remove(0);
 		}
 
 		if(playerTwoWarCard == null)
 		{
-			playerTwoFacedownCards.add(playerTwoHand.remove(0))
-			playerTwoFacedownCards.add(playerTwoHand.remove(0))
-			playerTwoFacedownCards.add(playerTwoHand.remove(0))
-			playerTwoWarCard = playerTwoHand.remove(0)
+			playerTwoFacedownCards.add(playerTwoHand.remove(0));
+			playerTwoFacedownCards.add(playerTwoHand.remove(0));
+			playerTwoFacedownCards.add(playerTwoHand.remove(0));
+			playerTwoWarCard = playerTwoHand.remove(0);
 		//If the 2 compared cards are equal, call warHandler(cardone, cardtwo);
+		//RECURSIVE CASE
+		if(playerTwoWarCard.getValue() == playerOneWarCard.getValue())
+		{
+			warHandler(playerOneWarCard, playerTwoWarCard);
+		}
+		//else we now compare whose card is bigger
+		else if(playerTwoWarCard.getValue() > playerOneWarCard.getValue())
+		{
+			//add all the cards to player two
+			playerTwoHand.addAll(playerOneFacedownCards);
+			playerTwoHand.addAll(playerTwoFacedownCards);
+		}
+		else
+		{
+			//playerOne should get all the cards
+			playerOneHand.addAll(playerOneFacedownCards);
+			playerOneHand.addAll(playerTwoFacedownCards);
+		}
+		//clear the war cards for next war
+		playerOneFacedownCards.clear();
+		playerTwoFacedownCards.clear();
 
 	}
 
