@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class War {
-	ArrayList<Card> playerOneHand = null;
-	ArrayList<Card> playerTwoHand = null;
-	ArrayList<Card> playerOneFacedownCards  = new ArrayList<Card>();
-	ArrayList<Card> playerTwoFacedownCards  = new ArrayList<Card>();
+	static ArrayList<Card> playerOneHand = null;
+	static ArrayList<Card> playerTwoHand = null;
+	static ArrayList<Card> playerOneFacedownCards  = new ArrayList<Card>();
+	static ArrayList<Card> playerTwoFacedownCards  = new ArrayList<Card>();
 
 	public static void main( String[ ] args){
 		startGame();
@@ -74,17 +74,17 @@ public class War {
 		//Player One lays down rest of hand and turns last card up
 		if (playerOneHand.size() < 5)
 		{
-			playerOneWarCard = list.remove(playerOneHand.size() - 1);
+			playerOneWarCard = playerOneHand.remove(playerOneHand.size() - 1);
 			playerOneFacedownCards.addAll(playerOneHand);
-			playOneHand.clear();
+			playerOneHand.clear();
 		}
 
 		//Player Two lays down rest of hand and turns last card up
 		if (playerTwoHand.size() < 5)
 		{
-			playerTwoWarCard = list.remove(playerTwoHand.size() - 1);
+			playerTwoWarCard = playerTwoHand.remove(playerTwoHand.size() - 1);
 			playerTwoFacedownCards.addAll(playerTwoHand);
-			playTwoHand.clear();
+			playerTwoHand.clear();
 		}
 
 		if(playerOneWarCard == null)
@@ -101,6 +101,7 @@ public class War {
 			playerTwoFacedownCards.add(playerTwoHand.remove(0));
 			playerTwoFacedownCards.add(playerTwoHand.remove(0));
 			playerTwoWarCard = playerTwoHand.remove(0);
+		}
 		//If the 2 compared cards are equal, call warHandler(cardone, cardtwo);
 		//RECURSIVE CASE
 		if(playerTwoWarCard.getValue() == playerOneWarCard.getValue())
@@ -123,6 +124,7 @@ public class War {
 		//clear the war cards for next war
 		playerOneFacedownCards.clear();
 		playerTwoFacedownCards.clear();
+
 
 	}
 
@@ -158,6 +160,14 @@ public class War {
 		System.out.println("Player Two's deck size : " + playerTwoHand.size());
 	}
 
+/*
+	This ends the game
+*/
+	public static void gameOver()
+	{
+		System.out.println("GAME OVER");
+	}
+
 	/**
 	 *   This method initiates the game and makes the player decks
 	 */
@@ -186,8 +196,8 @@ public class War {
 		//       Collections.shuffle(shuffledDeck);
 		//now we need to split the shuffled deck and assign it t0 p1 and p2
 
-		playerOne = shuffledDecxk.subList(0,26) // First 26 cards assigned to Player 1 (Needs to be tested)
-		playerTwo = shuffledDecxk.subList(26,53) // Last 26 cards assigned to Player 2 (Needs to be tested)
+		playerOneHand = (ArrayList<Card>) shuffledDeck.subList(0,26); // First 26 cards assigned to Player 1 (Needs to be tested)
+		playerTwoHand = (ArrayList<Card>) shuffledDeck.subList(26,53); // Last 26 cards assigned to Player 2 (Needs to be tested)
 
 	}
 
