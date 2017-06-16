@@ -66,7 +66,21 @@ public class War {
 				warHandler(playerOneCardLaid,playerTwoCardLaid);
 			}
 
+			for(int j = 0; j < playerOneHand.size(); j++)
+			{
+				System.out.print(playerOneHand.get(j).getName() + " ");
+			}
 			
+			System.out.println(" ");
+			System.out.println(" ");
+			
+			for(int j = 0; j < playerTwoHand.size(); j++)
+			{
+				System.out.print(playerTwoHand.get(j).getName() + " ");
+			}
+			
+			System.out.println(" ");
+			System.out.println(" ");
 			
 		}
 	}
@@ -172,9 +186,30 @@ public class War {
 
 		// THIS ALSO SET OFF {java.util.ConcurrentModificationException}
 		
-		playerOneHand = shuffledDeck.subList(0,26); // First 26 cards assigned to Player 1 (Needs to be tested)
-		playerTwoHand = shuffledDeck.subList(26,52); // Last 26 cards assigned to Player 2 (Needs to be tested)
-
+		//playerOneHand = shuffledDeck.subList(0,26); // First 26 cards assigned to Player 1 (Needs to be tested)
+		//playerTwoHand = shuffledDeck.subList(26,52); // Last 26 cards assigned to Player 2 (Needs to be tested)
+		
+		ArrayList<Card> playerOneTempHand  = new ArrayList<Card>();
+		ArrayList<Card> playerTwoTempHand  = new ArrayList<Card>();
+		
+		Iterator<Card> itr = shuffledDeck.iterator();
+		int i = 0;
+		
+		while(itr.hasNext())
+		{
+			if(i<26) 
+			{
+				playerOneTempHand.add(itr.next());
+			}
+			else
+			{
+				playerTwoTempHand.add(itr.next());
+			}
+			i++;
+		}
+		
+		playerOneHand = playerOneTempHand;
+		playerTwoHand = playerTwoTempHand;
 	}
 
 	public static ArrayList<Card> createCards()
